@@ -21,13 +21,20 @@ module.exports = class FreeStickers{
 
       var myFunction = function() {
         var attribute = this.getAttribute("src");
+
+        var link1 = attribute.substring(0, attribute.length - 3);
+
         BdApi.findModuleByProps('ComponentDispatch').ComponentDispatch.dispatchToLastSubscribed("INSERT_TEXT", {
-          content: attribute
+          content: link1 + "256"
         })
       };
     
       for (var i = 0; i < elements.length; i++) {
+        if (elements[i].getAttribute('hasclickevent') !== 'true') 
+        {
+          elements[i].setAttribute('hasclickevent', 'true');
           elements[i].addEventListener('click', myFunction, false);
+        }
       }
     }
   }

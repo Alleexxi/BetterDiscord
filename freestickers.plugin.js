@@ -25,7 +25,7 @@ module.exports = class FreeStickers{
         var link1 = attribute.substring(0, attribute.length - 3);
 
         BdApi.findModuleByProps('ComponentDispatch').ComponentDispatch.dispatchToLastSubscribed("INSERT_TEXT", {
-          content: link1 + "256"
+          content: link1 + "160"
         })
       };
     

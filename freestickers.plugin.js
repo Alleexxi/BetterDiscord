@@ -6,24 +6,13 @@
  *   
  */
 
-
-
-module.exports = class FreeStickers{
-     
-  load() { 
-    document.body.onmousedown = function() {console.log(".")}
-  }
-  
-  start() {
-
-    document.body.onmousedown = function() { 
+     var ClickEventXD = function() {
       var elements = document.getElementsByClassName("pngImage-33yLRP stickerAsset-13j1W0");
-
       var myFunction = function() {
         var attribute = this.getAttribute("src");
-
+  
         var link1 = attribute.substring(0, attribute.length - 3);
-
+  
         BdApi.findModuleByProps('ComponentDispatch').ComponentDispatch.dispatchToLastSubscribed("INSERT_TEXT", {
           content: link1 + "160"
         })
@@ -37,9 +26,21 @@ module.exports = class FreeStickers{
         }
       }
     }
-  }
-  
-  stop(){
-    document.body.onmousedown = function() {console.log(".")}
-  }
-}
+
+
+     module.exports = class FreeStickers{
+
+      load() { 
+        document.body.removeEventListener('mousedown',ClickEventXD);
+      }
+    
+    
+      start() {
+          document.body.addEventListener("mousedown", ClickEventXD);
+      }
+      
+      stop(){
+        document.body.removeEventListener('mousedown',ClickEventXD);
+      }
+    }
+    

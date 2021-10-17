@@ -10,7 +10,6 @@
       var elements = document.getElementsByClassName("pngImage-33yLRP stickerAsset-13j1W0");
       var myFunction = function() {
         var attribute = this.getAttribute("src");
-          event.stopPropagation();
         var link1 = attribute.substring(0, attribute.length - 3);
   
         BdApi.findModuleByProps('ComponentDispatch').ComponentDispatch.dispatchToLastSubscribed("INSERT_TEXT", {
